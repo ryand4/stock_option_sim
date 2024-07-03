@@ -14,7 +14,7 @@ function Hero() {
         <Button className='btns' buttonStyle='btn--outline'
         buttonSize='btn--large'>GET STARTED</Button>
         <Button className='btns' buttonStyle='btn--primary'
-        buttonSize='btn--large'>LEARN MORE</Button>
+        buttonSize='btn--large'>VISUALIZE RETURNS</Button>
       </div>
     </div>
   );

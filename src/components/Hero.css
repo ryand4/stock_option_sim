@@ -22,6 +22,7 @@ video {
     color: #fff;
     font-size: 100px;
     margin-top: -100px;
+    text-shadow: 2px 2px 1px #000; /* Add this line */
   }
   
   .hero-container > p {
@@ -30,6 +31,7 @@ video {
     font-size: 32px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
+    text-shadow: 2px 2px 1px #000; /* Add this line */
   }
   
   .hero-btns {
@@ -48,6 +50,7 @@ video {
     .hero-container > h1 {
       font-size: 70px;
       margin-top: -150px;
+      text-shadow: 2px 2px 4px #000; /* Ensure this is added for responsiveness */
     }
   }
   
@@ -55,10 +58,12 @@ video {
     .hero-container > h1 {
       font-size: 35px;
       margin-top: -100px;
+      text-shadow: 2px 2px 4px #000; /* Ensure this is added for responsiveness */
     }
   
     .hero-container > p {
       font-size: 30px;
+      text-shadow: 2px 2px 4px #000; /* Ensure this is added for responsiveness */
     }
   
     .btn-mobile {
@@ -70,26 +75,30 @@ video {
       width: 100%;
     }
   }
-
+  
   @media screen and (min-width: 769px) and (max-width: 900px) {
     .hero-container > h1 {
-        font-size: 50px;  
-        margin-top: -100px;
+      font-size: 50px;
+      margin-top: -100px;
+      text-shadow: 2px 2px 4px #000; /* Ensure this is added for responsiveness */
     }
-
+  
     .hero-container > p {
-        font-size: 25px;  
+      font-size: 25px;
+      text-shadow: 2px 2px 4px #000; /* Ensure this is added for responsiveness */
     }
-}
-
-@media screen and (min-width: 901px) and (max-width: 1300px) {
+  }
+  
+  @media screen and (min-width: 901px) and (max-width: 1300px) {
     .hero-container > h1 {
-        font-size: 70px;  
-        margin-top: -100px;
+      font-size: 70px;
+      margin-top: -100px;
+      text-shadow: 2px 2px 4px #000; /* Ensure this is added for responsiveness */
     }
-
+  
     .hero-container > p {
-        font-size: 25px;  
+      font-size: 25px;
+      text-shadow: 2px 2px 4px #000; /* Ensure this is added for responsiveness */
     }
-}
-
+  }
+  
