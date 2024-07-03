@@ -42,3 +42,8 @@
   color: #fff;
   font-size: 100px;
 }
+
+/* Add this to your CSS file (e.g., App.css) */
+html {
+  scroll-behavior: smooth;
+}

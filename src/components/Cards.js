@@ -4,8 +4,9 @@ import CardItem from './CardItem';
 
 function Cards() {
   return (
-    <div className='cards'>
-      <h1>Simulate your Returns</h1>
+    <div className='cards' id='cards-section'>
+      <h1>Visualize Your Options Trading Returns</h1>
+      <p>Simulate various option strategies to see potential gains and losses.</p>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>

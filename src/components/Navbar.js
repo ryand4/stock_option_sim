@@ -30,6 +30,15 @@ function Navbar() {
         showButton();
     }, []);
 
+    const scrollToSection = (event, sectionId) => {
+      event.preventDefault();
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        closeMobileMenu();
+      }
+    };
+
     window.addEventListener('resize', showButton);
 
     return (
@@ -49,16 +58,16 @@ function Navbar() {
                     </Link>
                 </li>
                 <li className='nav-item'>
-                    <Link to='/simulate' className='nav-links' onClick={closeMobileMenu}>
-                      Simulate
-                    </Link>
+                  <a href='#cards-section' className='nav-links' onClick={(e) => scrollToSection(e, 'cards-section')}>
+                  Simulate
+                </a>
                 </li>
+                <li>
                 <li className='nav-item'>
-                    <Link to='/extra' className='nav-links' onClick={closeMobileMenu}>
+                    <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                       Extra
                     </Link>
                 </li>
-                <li>
                     <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
                       Sign Up
                     </Link>

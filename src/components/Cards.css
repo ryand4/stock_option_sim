@@ -32,6 +32,18 @@
     border-radius: 10px;
   }
   
+  .cards h1 {
+    text-align: center;
+    margin-bottom: 1rem; /* Add this line */
+  }
+  
+  .cards p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 1rem;  /* Adjust this value as needed */
+    margin-bottom: 0;
+  }
   .cards__item__link {
     display: flex;
     flex-flow: column;
