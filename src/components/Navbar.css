@@ -42,8 +42,14 @@
     text-align: center;
     width: 60vw;
     justify-content: end;
-    margin-right: 2rem;
+    margin-right: 2rem; 
   }
+
+  @media (max-width: 960px) {
+    .nav-menu {
+        justify-content: start; /* Align items to the start of the container */
+    }
+}
   
   .nav-item {
     height: 80px;

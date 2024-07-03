@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons';
@@ -26,13 +26,17 @@ function Navbar() {
     //     showButton();
     // }, []);
 
+    useEffect(() => {
+        showButton();
+    }, []);
+
     window.addEventListener('resize', showButton);
 
     return (
     <>
       <nav className="navbar">
         <div className="navbar-container">
-            <Link to="/" className="navbar-logo">
+            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             SOS <FontAwesomeIcon icon={faHandHoldingDollar} />
             </Link>
             <div className='menu-icon' onClick={handleClick}>
@@ -50,7 +54,7 @@ function Navbar() {
                     </Link>
                 </li>
                 <li className='nav-item'>
-                    <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                    <Link to='/extra' className='nav-links' onClick={closeMobileMenu}>
                       Extra
                     </Link>
                 </li>
