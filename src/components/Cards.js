@@ -14,14 +14,14 @@ function Cards() {
               src='images/img-5.png'
               text='Call Option'
               label='Bullish'
-              path='/services'
+              path='/call'
               labelClass='green-label'
             />
             <CardItem
               src='images/img-2.png'
               text='Put Option'
               label='Bearish'
-              path='/services'
+              path='/put'
               labelClass='red-label'
             />
           </ul>
@@ -30,14 +30,14 @@ function Cards() {
               src='images/img-3.png'
               text='Covered Call Option'
               label='Bullish'
-              path='/services'
+              path='/cc'
               labelClass='green-label'
             />
             <CardItem
               src='images/img-4.png'
               text='Cash-Secured Put Option'
               label='Bullish'
-              path='/products'
+              path='/csp'
               labelClass='green-label'
             />
           </ul>
