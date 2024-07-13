@@ -1,42 +1,66 @@
 /* Call.css */
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     color: white;
-    overflow: hidden; /* Prevents any overflow from the video */
-  }
-  
-  .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    overflow: hidden; /* Prevents any overflow from the video or content */
+}
+
+.background-video {
+    flex: 1 1 50%; /* Ensures the video takes exactly half of the container */
     height: 100%;
-    object-fit: cover; /* Ensures the video covers the full container */
-    z-index: -1; /* Sends the video to the background */
-  }
-  
-  .content {
-    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
-    width: 90%; /* Increased width */
-    height: calc(100% - 20px); /* Full height minus padding */
+    object-fit: cover; /* Ensures the video covers the designated area fully */
+    z-index: -1; /* Keeps the video behind the content */
+}
+
+.content {
+    flex: 1 1 50%; /* Ensures the content area also takes exactly half of the container */
+    background-color: rgba(255, 255, 255, 0.87); /* Semi-transparent white */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically in the flex container */
+    align-items: center; /* Centers content horizontally */
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 0px;
-    color: black; /* Ensures text inside is black */
     overflow-y: auto; /* Adds scroll to content if it exceeds the view height */
     z-index: 2; /* Ensures content is above the video */
-  }
-  
-  .title {
-    font-size: 2.5rem; /* Increased font size for better visibility */
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px; /* Limits the width of the form */
+}
+
+.title {
+    font-size: 2.5rem;
+    color: black; /* Ensures text inside is black */
     text-transform: uppercase;
-    margin-bottom: 20px; /* Space after the title */
-  }
-  
-  
-  
+    margin-bottom: 20px;
+}
+
+input, button {
+    width: 100%; /* Makes input take full width of the form container */
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+label {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
 
   
