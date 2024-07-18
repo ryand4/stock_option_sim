@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import './Call.css';
+import { useEffect } from 'react';
 
 const Call = () => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const [formData, setFormData] = useState({
     numContracts: '',
     contractCost: '',
     expirationDate: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [stockPrice, setStockPrice] = useState(100); // Initial stock price
+  const [intervalId, setIntervalId] = useState(null);  // State to hold interval ID
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -19,7 +27,21 @@ const Call = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsSubmitted(true);  // Set the form as submitted
+    setIsSubmitted(true);
+  };
+
+  const handleMouseUp = () => {
+    // Clear the interval when mouse is released
+    clearInterval(intervalId);
+    setIntervalId(null);
+  };
+
+  const handleMouseDown = (change) => {
+    // Start the interval when mouse is pressed down
+    const id = setInterval(() => {
+      setStockPrice(prevPrice => prevPrice + change);
+    }, 100); // Change the price every 100 milliseconds
+    setIntervalId(id);
   };
 
   return (
@@ -29,7 +51,13 @@ const Call = () => {
         Your browser does not support the video tag.
       </video>
       <div className="content">
-        {!isSubmitted ? (
+        {isSubmitted ? (
+          <div className="price-adjuster">
+            <button onMouseDown={() => handleMouseDown(-1)} onMouseUp={handleMouseUp}>&#9664;</button> {/* Left arrow */}
+            <span>Stock Price: ${stockPrice}</span>
+            <button onMouseDown={() => handleMouseDown(1)} onMouseUp={handleMouseUp}>&#9654;</button> {/* Right arrow */}
+          </div>
+        ) : (
           <div className="form-container">
             <h1 className="title">Call Option</h1>
             <form onSubmit={handleSubmit}>
@@ -64,12 +92,6 @@ const Call = () => {
               <button type="submit">Submit</button>
             </form>
           </div>
-        ) : (
-          <div className="result-container">
-            <h1>Contracts: {formData.numContracts}</h1>
-            <h1>Premium: {formData.contractCost}</h1>
-            <h1>Exp Date: {formData.expirationDate}</h1>
-          </div>
         )}
       </div>
     </div>
@@ -77,5 +99,4 @@ const Call = () => {
 };
 
 export default Call;
-
 

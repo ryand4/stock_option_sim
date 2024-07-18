@@ -16,7 +16,7 @@
 .content {
     flex: 1 1 50%; /* Ensures the content area also takes exactly half of the container */
     background-color: rgba(255, 255, 255, 0.87); /* Semi-transparent white */
-    display: flex;
+    display: start;
     flex-direction: column;
     justify-content: center; /* Centers content vertically in the flex container */
     align-items: center; /* Centers content horizontally */
@@ -62,5 +62,28 @@ label {
     margin-bottom: 5px;
 }
 
+.price-adjuster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Spacing between elements */
+}
 
-  
+.price-adjuster button {
+    cursor: pointer;
+    padding: 5px; /* Reduced padding */
+    font-size: 16px; /* Smaller arrow icons */
+    width: 50px; /* Fixed width for the button */
+    height: 50px; /* Fixed height for the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    border-radius: 5px;
+}
+
+.price-adjuster span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
