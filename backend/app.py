@@ -1,18 +1,31 @@
-from flask import Flask, jsonify
-from flask_cors import CORS
-import random
+# from flask import Flask, jsonify
+# from flask_cors import CORS
+# import yfinance as yf
+from yahoo_fin import options
 
-app = Flask(__name__)
-CORS(app)  # This will enable CORS for all domains on all routes
+# Get options data for Apple
+aapl_options = options.get_options_chain("TSLA", 'August 2, 2024')
 
-@app.route('/api/random-data')
-def random_data():
-    # Generate some random data
-    data = {
-        'number': random.randint(1, 100),
-        'message': 'Hello from Flask!'
-    }
-    return jsonify(data)
+print(aapl_options['calls'])  # Print call options data
+print(aapl_options['puts'])   # Print put options data
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)  # Run the app on localhost port 5000
+
+# app = Flask(__name__)
+# CORS(app)  # Enable CORS for all domains on all routes
+
+# @app.route('/api/aapl-option')
+# def get_aapl_option():
+#     aapl = yf.Ticker("AAPL")
+#     try:
+#         first_exp = aapl.options[0]
+#         opt = aapl.option_chain(first_exp)
+#         first_call = opt.calls.iloc[0].to_dict()
+#     except Exception as e:
+#         return jsonify({'error': str(e)})
+
+#     return jsonify(first_call)
+
+# if __name__ == '__main__':
+#     app.run(debug=True)
+
+
