@@ -28,8 +28,8 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='images/img-3.png'
-              text='Covered Call Option'
-              label='Bullish'
+              text='TrendChart: Compare Moving Averages'
+              label='TA Tool'
               path='/cc'
               labelClass='green-label'
             />

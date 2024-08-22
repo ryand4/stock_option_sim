@@ -1,3 +1,4 @@
+/* General Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,6 +6,7 @@
   font-family: 'PT Sans', sans-serif;
 }
 
+/* Home Page Sections */
 .home,
 .services,
 .products,
@@ -17,7 +19,6 @@
 }
 
 .services {
-  /* background-image: url('/images/img-2.jpg'); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,7 +27,6 @@
 }
 
 .products {
-  /* background-image: url('/images/img-1.jpg'); */
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
@@ -35,7 +35,6 @@
 }
 
 .sign-up {
-  /* background-image: url('/images/img-8.jpg'); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,7 +42,94 @@
   font-size: 100px;
 }
 
-/* Add this to your CSS file (e.g., App.css) */
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Styles specific to the Stock Price Chart Page */
+.stock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f0f0f0; /* Light grey background */
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+.stock-container h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Centering and Styling the Form */
+.stock-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+/* Input Field Styling */
+.stock-form-container input[type="text"],
+.stock-form-container select {
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+/* Checkbox Container */
+.stock-checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stock-checkbox-container label {
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.stock-checkbox-container input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.5); /* Make checkboxes bigger */
+}
+
+/* Button Styling */
+.stock-form-container button {
+    padding: 15px 30px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #007bff; /* Blue color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.stock-form-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.stock-form-container button:active {
+    background-color: #004080; /* Even darker on click */
+}
+
+/* Centering the Image */
+.stock-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
