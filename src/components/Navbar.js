@@ -6,6 +6,10 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
 import { Button } from './Button';
+import { Link as ScrollLink } from 'react-scroll';
+
+
+
 
 
 function Navbar() {
@@ -29,15 +33,14 @@ function Navbar() {
     useEffect(() => {
         showButton();
     }, []);
-
-    const scrollToSection = (event, sectionId) => {
-      event.preventDefault();
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-        closeMobileMenu();
+    
+    const scrollToTop = (event) => {
+      if (window.location.pathname === '/') {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          closeMobileMenu();
       }
-    };
+  };
 
     window.addEventListener('resize', showButton);
 
@@ -46,34 +49,51 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-container">
             <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            SOS <FontAwesomeIcon icon={faHandHoldingDollar} />
+              StockSensei&nbsp;<FontAwesomeIcon icon={faHandHoldingDollar} />
             </Link>
             <div className='menu-icon' onClick={handleClick}>
                 <FontAwesomeIcon icon={ click ? faX : faBars } />
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                
+            <li className='nav-item'>
+                            <Link to='/' className='nav-links' onClick={scrollToTop}>
+                                Home
+                            </Link>
+                        </li>
+
                 <li className='nav-item'>
                     <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                      Home
+                      Guide
                     </Link>
                 </li>
-                <li className='nav-item'>
-                  <a href='#cards-section' className='nav-links' onClick={(e) => scrollToSection(e, 'cards-section')}>
-                  Simulate
-                </a>
-                </li>
+
                 <li>
-                <li className='nav-item'>
-                    <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                      Extra
-                    </Link>
-                </li>
-                    <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
-                      SIGN UP/LOG IN
-                    </Link>
-                </li>
+                            <ScrollLink 
+                                to='cards-section' 
+                                smooth={true} 
+                                duration={800} 
+                                offset={-70} // Optional: Adjust if you have a fixed header
+                                className='nav-links-mobile' 
+                                onClick={closeMobileMenu}
+                            >
+                                TOOLS
+                            </ScrollLink>
+                        </li>
             </ul>
-            {button && <Button buttonStyle='btn--outline'>LOG IN</Button>}
+            {button && (
+                        <ScrollLink 
+                            to='cards-section' 
+                            smooth={true} 
+                            duration={800} 
+                            offset={-70} // Optional: Adjust if you have a fixed header
+                            className='btn-mobile'
+                        >
+                            <Button buttonStyle='btn--outline'>
+                                TOOLS
+                            </Button>
+                        </ScrollLink>
+                    )}
         </div>
       </nav>
     </>

@@ -12,14 +12,14 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='images/img-5.png'
-              text='Call Option'
+              text='TrendChart: Compare Moving Averages'
               label='Bullish'
               path='/call'
               labelClass='green-label'
             />
             <CardItem
               src='images/img-2.png'
-              text='Put Option'
+              text='TrendChart: Compare Moving Averages'
               label='Bearish'
               path='/put'
               labelClass='red-label'
@@ -33,13 +33,8 @@ function Cards() {
               path='/cc'
               labelClass='green-label'
             />
-            <CardItem
-              src='images/img-4.png'
-              text='Cash-Secured Put Option'
-              label='Bullish'
-              path='/csp'
-              labelClass='green-label'
-            />
+            
+            
           </ul>
         </div>
       </div>
