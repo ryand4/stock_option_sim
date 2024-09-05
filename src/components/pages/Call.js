@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import '../../App.css';
 
-function Call() {
-    const [ticker, setTicker] = useState('AAPL');
-    const [predictionDays, setPredictionDays] = useState(30);
+const StockPricePrediction = () => {
+    const [ticker, setTicker] = useState('AAPL');  // Default ticker symbol
     const [predictions, setPredictions] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setLoading(true);
+        setError('');
 
-        // Send POST request to backend for stock price predictions
+        // Fixed prediction period: 1 month (30 days)
+        const predictionDays = 30;
+
         fetch('http://127.0.0.1:5000/train-predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -23,52 +27,40 @@ function Call() {
                 return response.json();
             })
             .then((data) => {
-                const flatPredictions = data.future_predictions.flat(); // Flatten the predictions array
-                setPredictions(flatPredictions); // Set predictions from backend
+                setPredictions(data.future_predictions);
                 setLoading(false);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
+                setError('Failed to fetch predictions. ' + error.message);
                 setLoading(false);
             });
     };
 
     return (
-        <div>
-            <h1>Stock Price Prediction</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Ticker Symbol:
-                    <input
-                        type="text"
-                        value={ticker}
-                        onChange={(e) => setTicker(e.target.value.toUpperCase())}
-                    />
-                </label>
-                <br />
-                <label>
-                    Prediction Days:
-                    <input
-                        type="number"
-                        value={predictionDays}
-                        onChange={(e) => setPredictionDays(Number(e.target.value))}
-                    />
-                </label>
-                <br />
-                <button type="submit">Predict</button>
-            </form>
+        <div className="stock-container">
+            <h1>Stock Price Prediction (1 Month Outlook)</h1>
+            <div className="stock-form-container">
+                <input
+                    type="text"
+                    value={ticker}
+                    onChange={(e) => setTicker(e.target.value.toUpperCase())}
+                    placeholder="Enter stock ticker"
+                />
+                <button onClick={handleSubmit}>Predict</button>
+            </div>
 
             {loading ? (
                 <p>Loading predictions...</p>
+            ) : error ? (
+                <p>{error}</p>
             ) : (
                 predictions.length > 0 && (
                     <div>
-                        <h2>Predicted Stock Prices for {ticker}:</h2>
+                        <h2>Predicted Stock Prices for {ticker} (Next 30 Days):</h2>
                         <ul>
                             {predictions.map((price, index) => (
-                                <li key={index}>
-                                    Day {index + 1}: ${typeof price === 'number' ? price.toFixed(2) : 'Invalid price'}
-                                </li>
+                                <li key={index}>Day {index + 1}: ${parseFloat(price).toFixed(2)}</li>
                             ))}
                         </ul>
                     </div>
@@ -76,6 +68,7 @@ function Call() {
             )}
         </div>
     );
-}
+};
 
-export default Call;
+export default StockPricePrediction;
+
