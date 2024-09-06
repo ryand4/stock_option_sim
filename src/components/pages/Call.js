@@ -93,37 +93,37 @@ const StockPricePrediction = () => {
 
     return (
         <div className="stock-container">
-            <h1 className="title">PricePredictAI (1 Month Outlook)</h1>
-            <p className="description">
-                PricePredictAI uses advanced machine learning algorithms to forecast the next 30 days of a stock's closing prices.
-                To use this tool, enter a valid stock ticker (e.g., AAPL for Apple), and PricePredictAI will generate a chart of the 
-                predicted prices. This simulation provides an estimate based on historical data and machine learning models. 
-            </p>
-            <div className="stock-form-container">
-                <input
-                    type="text"
-                    value={ticker}
-                    onChange={(e) => setTicker(e.target.value.toUpperCase())}
-                    placeholder="Enter stock ticker"
-                    className="ticker-input"
-                />
-                <button onClick={handleSubmit} className="predict-btn">Predict</button>
-                <p className="disclaimer">
-                    Disclaimer: This tool is for educational purposes only and should not be used as financial advice. Stock market predictions are speculative, and results may vary. Always consult a professional financial advisor.
-                </p>
-            </div>
-
             {loading ? (
-                <LoadingScreen /> // Use the loading screen with rotating messages
-            ) : error ? (
-                <p>{error}</p>
+                <LoadingScreen /> // Show full-screen loading screen while fetching predictions
             ) : (
-                predictions.length > 0 && (
-                    <div className="stock-chart-container">
-                        <h2>Predicted Stock Prices for {ticker} (Next 30 Days):</h2>
-                        <Line data={chartData} options={chartOptions} />
+                <>
+                    <h1 className="title">PricePredictAI (1 Month Outlook)</h1>
+                    <p className="description">
+                        PricePredictAI uses advanced machine learning algorithms to forecast the next 30 days of a stock's closing prices.
+                        To use this tool, enter a valid stock ticker (e.g., AAPL for Apple), and PricePredictAI will generate a chart of the 
+                        predicted prices. This simulation provides an estimate based on historical data and machine learning models. 
+                    </p>
+                    <div className="stock-form-container">
+                        <input
+                            type="text"
+                            value={ticker}
+                            onChange={(e) => setTicker(e.target.value.toUpperCase())}
+                            placeholder="Enter stock ticker"
+                            className="ticker-input"
+                        />
+                        <button onClick={handleSubmit} className="predict-btn">Predict</button>
+                        <p className="disclaimer">
+                            Disclaimer: This tool is for educational purposes only and should not be used as financial advice. Stock market predictions are speculative, and results may vary. Always consult a professional financial advisor.
+                        </p>
                     </div>
-                )
+                    {error && <p>{error}</p>}
+                    {predictions.length > 0 && (
+                        <div className="stock-chart-container">
+                            <h2>Predicted Stock Prices for {ticker} (Next 30 Days):</h2>
+                            <Line data={chartData} options={chartOptions} />
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );
