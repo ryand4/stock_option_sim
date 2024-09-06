@@ -53,7 +53,7 @@ html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #f0f0f0; /* Light grey background */
+    background-color: #efefef; /* Light grey background */
     min-height: 100vh;
     padding-top: 20px;
 }
@@ -84,6 +84,8 @@ html {
     margin-bottom: 20px;
     width: 300px;
     text-align: center;
+    background-color: #e0f2fe; 
+
 }
 
 /* Checkbox Container */
@@ -92,12 +94,15 @@ html {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    
 }
 
 .stock-checkbox-container label {
     margin-right: 20px;
     font-size: 18px;
     cursor: pointer;
+    
+    
 }
 
 .stock-checkbox-container input[type="checkbox"] {
@@ -110,7 +115,7 @@ html {
     padding: 15px 30px;
     font-size: 20px;
     color: #fff;
-    background-color: #007bff; /* Blue color */
+    background-color: #0079fb; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -118,11 +123,11 @@ html {
 }
 
 .stock-form-container button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0ddb4e; 
 }
 
 .stock-form-container button:active {
-    background-color: #004080; /* Even darker on click */
+    background-color: #000000; /* Even darker on click */
 }
 
 /* Centering the Image */
@@ -132,4 +137,135 @@ html {
     max-width: 90%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stock-chart-container {
+  width: 100%;         /* Take up the full width */
+  max-width: 1200px;   /* Maximum width for larger screens */
+  height: 600px;       /* Default height */
+  margin: 0 auto;      /* Center the chart on the page */
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .stock-chart-container {
+      height: 400px;  /* Smaller height for medium screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .stock-chart-container {
+      height: 300px;  /* Even smaller height for small screens */
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.description {
+  font-size: 1.2rem;
+  max-width: 900px; /* Adjusted to use more width on the screen */
+  margin-bottom: 40px;
+  text-align: center;
+  color: #555;
+  line-height: 1.5;
+}
+
+.stock-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.ticker-input {
+  font-size: 1.2rem;
+  padding: 10px;
+  width: 300px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.predict-btn {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.predict-btn:hover {
+  background-color: #0056b3;
+}
+
+.disclaimer {
+  font-size: 0.9rem;
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 600px; /* Adjust for width */
+  line-height: 1.5;
+}
+
+/* For smaller screens (up to 768px) */
+@media (max-width: 768px) {
+  .title {
+      font-size: 2.5rem;
+  }
+
+  .description {
+      font-size: 1rem;
+      max-width: 90%;
+  }
+
+  .disclaimer {
+      font-size: 0.9rem;
+      max-width: 90%;
+  }
+}
+
+/* For very small screens (up to 480px) */
+@media (max-width: 480px) {
+  .title {
+      font-size: 2rem;
+  }
+
+  .description {
+      font-size: 0.9rem;
+      max-width: 100%;
+  }
+
+  .disclaimer {
+      font-size: 0.8rem;
+      max-width: 100%;
+  }
+
+  .loading-screen {
+    text-align: center;
+    margin-top: 100px;
+    font-family: Arial, sans-serif;
+}
+
+.loading-screen h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.loading-screen p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.loading-info {
+    margin-top: 20px;
+    color: grey;
+    font-size: 1rem;
+}
+
 }

@@ -4,7 +4,7 @@ import '../../App.css';
 const StockPriceChart = () => {
   const [imageSrc, setImageSrc] = useState('');
   const [error, setError] = useState('');
-  const [ticker, setTicker] = useState('AAPL');  // Default to AAPL
+  const [ticker, setTicker] = useState('');  // Default to empty string
   const [timeframe, setTimeframe] = useState('5y');  // Default to 5 years
   const [movingAverages, setMovingAverages] = useState({
     '50': true,
@@ -12,7 +12,17 @@ const StockPriceChart = () => {
     '200': true
   });  // Default to all MAs selected
 
+  // Function to fetch the stock chart image
   const fetchImage = () => {
+    // Clear previous error and image
+    setError('');
+    setImageSrc('');
+
+    if (!ticker) {
+      setError('Please enter a stock ticker.');
+      return;
+    }
+
     const selectedMAs = Object.keys(movingAverages).filter(ma => movingAverages[ma]);
     const maString = selectedMAs.join(',');
 
@@ -33,9 +43,12 @@ const StockPriceChart = () => {
       });
   };
 
+  // Trigger fetchImage when user changes the timeframe or a moving average checkbox
   useEffect(() => {
-    fetchImage();  // Fetch data for default ticker on component mount
-  }, []);
+    if (ticker) {
+      fetchImage();
+    }
+  }, [timeframe, movingAverages]);
 
   const handleCheckboxChange = (ma) => {
     setMovingAverages(prevState => ({
