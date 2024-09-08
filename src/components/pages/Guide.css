@@ -1,0 +1,133 @@
+/* Guide.css */
+.guide-container {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  .guide-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #04b013;
+    margin-bottom: 20px;
+  }
+
+  .title-price-predict-ai {
+    font-size: 2rem; /* Adjust as needed */
+    color: #000000; /* Or whatever color you want */
+    text-align: center;
+    margin-bottom: 5px;
+    /* Add any other styles you prefer */
+  }
+  
+  
+  .guide-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  
+  .guide-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #04c527;
+  }
+  
+  .guide-section p,
+  .guide-section ul {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .guide-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .guide-section li {
+    margin-bottom: 10px;
+  }
+  
+  /* Table Styling */
+  .table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .center-table {
+    width: 80%; /* Adjust width as needed */
+    border-collapse: collapse;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  .center-table td {
+    padding: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .center-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Toggle Button */
+  .toggle-section {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .toggle-button {
+    padding: 10px 20px;
+    background-color: #0289ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-button:hover {
+    background-color: #03890e;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .guide-title {
+      font-size: 2rem;
+    }
+  
+    .guide-section h2 {
+      font-size: 1.5rem;
+    }
+  
+    .guide-section p {
+      font-size: 1rem;
+    }
+  
+    .guide-section ul {
+      font-size: 1rem;
+    }
+  
+    .guide-footer {
+      font-size: 1rem;
+    }
+  
+    .center-table {
+      width: 100%;
+    }
+  
+    .toggle-button {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  }
+  

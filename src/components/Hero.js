@@ -7,7 +7,8 @@ import { Link as ScrollLink } from 'react-scroll';
 function Hero() {
   return (
     <div className='hero-container'>
-      <video src="/videos/video-1.mp4" autoPlay loop muted />
+      <video className="background-video" src="/videos/video-1.mp4" autoPlay loop muted />
+      <img className="background-image" src="/images/img-6.png" alt="Background" />
       <h1>SMARTER INVESTING AWAITS</h1>
       <p>Trade Stocks Like A Pro For Free</p>
       <div className="hero-btns">
