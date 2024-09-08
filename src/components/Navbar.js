@@ -108,21 +108,21 @@ function Navbar() {
                             </ScrollLink>
                     ) : (
                         <Link
-                        to="/"
-                        className='nav-links-mobile' 
-                        onClick={() => {
-                            // After navigating to the home page, this will scroll to the tools section
-                            closeMobileMenu();
-                            handleScrollToTools();
-                          }}
-                        >
-                            TOOLS
-                        </Link>
-                        
+      to="/" 
+      className='nav-links-mobile'
+      onClick={() => {
+        closeMobileMenu();
+        setTimeout(() => { 
+          document.getElementById('cards-section').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        }, 50); // Adjust delay as needed for smooth transition after navigation
+      }}
+    >
+      TOOLS
+    </Link>
                     )}
                         </li>
             </ul>
-            {button && (
+            {button && ( 
                         <ScrollLink 
                             to='cards-section' 
                             smooth={true} 
