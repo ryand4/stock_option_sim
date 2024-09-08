@@ -6,7 +6,8 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
 import { Button } from './Button';
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink, animateScroll as scroll} from 'react-scroll';
+
 
 
 
@@ -30,6 +31,10 @@ function Navbar() {
     //     showButton();
     // }, []);
 
+    const handleScrollToTools = () => {
+        window.scrollTo(document.getElementById('cards-section').offsetTop - 70);
+      };
+
     useEffect(() => {
         showButton();
     }, []);
@@ -37,13 +42,34 @@ function Navbar() {
     const scrollToTop = (event) => {
       if (window.location.pathname === '/') {
           event.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
           closeMobileMenu();
-      }
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        else {
+            closeMobileMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
   };
+
+  const scrollToTopGuide = (event) => {
+    if (window.location.pathname === '/Guide') {
+        event.preventDefault();
+        closeMobileMenu();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    else {
+        closeMobileMenu();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+};
 
     window.addEventListener('resize', showButton);
 
+    const handleNavigationClick = () => {
+        scrollToTop(); // Scroll to the top of the page
+        closeMobileMenu(); // Close the mobile menu
+      };
+      
     return (
     <>
       <nav className="navbar">
@@ -63,14 +89,15 @@ function Navbar() {
                         </li>
 
                 <li className='nav-item'>
-                    <Link to='/Guide' className='nav-links' onClick={closeMobileMenu}>
+                    <Link to='/Guide' className='nav-links' onClick={scrollToTopGuide}>
                       Guide
                     </Link>
                 </li>
 
                 <li>
-                            <ScrollLink 
-                                to='cards-section' 
+                    {window.location.pathname === '/' ? (      
+                            <ScrollLink   
+                            to='cards-section' 
                                 smooth={true} 
                                 duration={800} 
                                 offset={-70} // Optional: Adjust if you have a fixed header
@@ -79,6 +106,20 @@ function Navbar() {
                             >
                                 TOOLS
                             </ScrollLink>
+                    ) : (
+                        <Link
+                        to="/"
+                        className='nav-links-mobile' 
+                        onClick={() => {
+                            // After navigating to the home page, this will scroll to the tools section
+                            closeMobileMenu();
+                            handleScrollToTools();
+                          }}
+                        >
+                            TOOLS
+                        </Link>
+                        
+                    )}
                         </li>
             </ul>
             {button && (

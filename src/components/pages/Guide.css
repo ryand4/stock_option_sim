@@ -11,7 +11,7 @@
     text-align: center;
     font-size: 2.5rem;
     color: #04b013;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .title-price-predict-ai {
@@ -35,6 +35,42 @@
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: #04c527;
+  }
+
+  .guide-section h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #03adfcfd;
+  }
+
+  .guide-section h5 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #d2d214;
+  }
+
+  .guide-section h6 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #ff0000;
+  }
+
+  .guide-section h7 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #ff8c00;
+  }
+
+  .guide-section h8 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #a80af7;
+  }
+
+  .guide-section h9 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #06927a;
   }
   
   .guide-section p,
@@ -77,10 +113,18 @@
   .center-table tr:last-child td {
     border-bottom: none;
   }
+
+  .guide-note {
+    font-size: 1.2rem;
+    color: #666; /* You can choose a different color if you prefer */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
   
   /* Toggle Button */
   .toggle-section {
-    text-align: left;
+    text-align: center;
     margin-bottom: 20px;
   }
   
@@ -97,6 +141,13 @@
   
   .toggle-button:hover {
     background-color: #03890e;
+  }
+  
+  .guide-image {
+    display: block;
+    margin: 20px auto; /* Centers the image horizontally */
+    max-width: 17%; /* Ensures the image doesn't exceed the container width */
+    height: auto; /* Maintains the image aspect ratio */
   }
   
   /* Responsive Styles */

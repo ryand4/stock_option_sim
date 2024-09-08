@@ -14,16 +14,20 @@ export default function Guide() {
   return (
     <div className="guide-container">
       <h1 className="guide-title">Guide</h1>
-      
-      <div className="toggle-section">
+      <p className="guide-note">
+      Use the toggle button below to switch between the PricePredictAI guide and the TrendChart guide.
+    </p>
+      {isPricePredict ? (
+        <div>
+          <h2 className="title-price-predict-ai">PricePredictAI</h2>
+
+          <img src="images/img-12.png" alt="PricePredictAI Image" className="guide-image" />
+
+          <div className="toggle-section">
         <button className="toggle-button" onClick={toggleGuide}>
           {isPricePredict ? "Switch to TrendChart Guide" : "Switch to PricePredictAI Guide"}
         </button>
       </div>
-
-      {isPricePredict ? (
-        <div>
-          <h2 className="title-price-predict-ai">PricePredictAI</h2>
       <div className="guide-section">
         <h2>Overview</h2>
         <p>
@@ -132,6 +136,12 @@ export default function Guide() {
   ) : (
 <div>
   <h2 className="title-price-predict-ai">TrendChart</h2>
+  <img src="images/img-9.png" alt="PricePredictAI Image" className="guide-image" />
+  <div className="toggle-section">
+        <button className="toggle-button" onClick={toggleGuide}>
+          {isPricePredict ? "Switch to TrendChart Guide" : "Switch to PricePredictAI Guide"}
+        </button>
+      </div>
           <div className="guide-section">
             <h2>Overview</h2>
             <p>
@@ -157,10 +167,58 @@ export default function Guide() {
             </div>
 
             <div className="guide-section">
-              <h2>Design Considerations</h2>
-              <p>
-                <strong>Moving Averages:</strong> This tool compares different types of moving averages, which smooth stock price data over time to help detect market trends.
-              </p>
+  <h2>Moving Average Comparisons</h2>
+  <p>
+  Comparing different moving averages (MAs) helps traders identify trends, reversals, and potential entry/exit points. Here are key benefits and setups to watch for:
+  </p>
+
+  <div className="guide-section">
+    <h8>Trend Identification</h8>
+    <p>
+    When shorter MAs (e.g., 50-day) are above longer MAs (e.g., 100-day, 200-day), it signals an uptrend. If shorter MAs fall below longer MAs, it indicates a downtrend.
+    </p>
+  </div>
+  <div className="guide-section">
+    <h5>Golden Cross</h5>
+    <p>
+    A bullish signal that occurs when the 50-day MA crosses above the 200-day MA. This setup suggests potential for sustained upward movement.
+    </p>
+  </div>
+
+  <div className="guide-section">
+    <h6>Death Cross</h6>
+    <p>
+    The opposite of the Golden Cross, where the 50-day MA crosses below the 200-day MA, signaling potential downward momentum and bearish sentiment.
+    </p>
+  </div>  
+
+  <div className="guide-section">
+    <h7>50 MA Crossing 100 MA</h7>
+    <p>
+    A crossover of the 50-day MA above the 100-day MA is bullish, signaling strength in the stock's shorter-term trend. A cross below indicates weakening momentum.
+    </p>
+  </div>    
+
+  <div className="guide-section">
+    <h7>200 MA Crossing 100 MA</h7>
+    <p>
+    When the 200-day MA crosses the 100-day MA, it highlights a shift in long-term market sentiment. A cross above suggests bullish momentum, while a cross below points to bearish pressure.
+    </p>
+  </div>
+
+  <div className="guide-section">
+    <h4>Support and Resistance</h4>
+    <p>
+    Moving averages often act as dynamic support or resistance levels. Traders use MAs to identify potential bounce points during pullbacks or retracements in trending markets.
+    </p>
+  </div>
+
+      <div className="guide-section">
+    <h9>Crossover Confirmation</h9>
+    <p>
+    Crossovers of multiple MAs (e.g., 50, 100, and 200) can confirm the strength of a trend and help traders avoid false signals.
+    </p>
+  </div>
             </div>
 
             {/* Additional sections for TrendChart */}
