@@ -20,6 +20,7 @@ function Navbar() {
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
+    
     const showButton = () => {
         if(window.innerWidth <= 960) {
             setButton(false);
@@ -31,14 +32,19 @@ function Navbar() {
     //     showButton();
     // }, []);
 
-    const handleScrollToTools = () => {
-        window.scrollTo(document.getElementById('cards-section').offsetTop - 70);
-      };
+    
 
     useEffect(() => {
         showButton();
     }, []);
     
+    
+    const scrollToTopTOOLS = (event) => {
+        if (window.location.pathname === '/') {
+            window.scrollTo({ top: 750, behavior: 'smooth' });
+          }
+    };
+
     const scrollToTop = (event) => {
       if (window.location.pathname === '/') {
           event.preventDefault();
@@ -65,10 +71,6 @@ function Navbar() {
 
     window.addEventListener('resize', showButton);
 
-    const handleNavigationClick = () => {
-        scrollToTop(); // Scroll to the top of the page
-        closeMobileMenu(); // Close the mobile menu
-      };
       
     return (
     <>
@@ -122,7 +124,8 @@ function Navbar() {
                     )}
                         </li>
             </ul>
-            {button && ( 
+            
+            {button && (window.location.pathname === '/' ? ( 
                         <ScrollLink 
                             to='cards-section' 
                             smooth={true} 
@@ -134,7 +137,17 @@ function Navbar() {
                                 TOOLS
                             </Button>
                         </ScrollLink>
-                    )}
+                    ) : window.location.pathname !== '/' ? ( 
+                        <Button to='/' className='nav-links' buttonStyle= 'btn--outline' onClick={scrollToTopTOOLS}>
+                            TOOLS
+                        </Button>
+    ) : (
+        // Default case for other paths
+        <Button to='/' className='nav-links' buttonStyle= 'btn--outline' onClick={scrollToTopTOOLS}>
+                            TOOLS
+                        </Button>
+    )
+)}
         </div>
       </nav>
     </>

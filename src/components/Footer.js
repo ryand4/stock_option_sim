@@ -27,13 +27,13 @@ function Footer() {
       </section>
       <div className='footer-contact'>
         <h2>Contact Us</h2>
-        <p>Email: <a href='mailto:info@stockoptionsimulator.com'>info@stockoptionsimulator.com</a></p>
+        <p>Email: <a href='mailto:info@stockoptionsimulator.com'>stocksenseiweb@gmail.com</a></p>
       </div>
       <div className='footer-logo'>
         <Link to='/' className='social-logo'>
           <i className='fab fa-typo3' />
         </Link>
-        <small className='website-rights'>Stock Option Simulator © 2024</small>
+        <small className='website-rights'>StockSensei © 2024</small>
       </div>
     </div>
   );
