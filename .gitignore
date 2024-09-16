@@ -7,6 +7,12 @@
 
 # testing
 /coverage
+backend/.venv
+backend/env
+backend/__pycache__
+backend/deployment.zip
+backend/requirements.txt
+backend/runtime.txt
 
 # production
 /build

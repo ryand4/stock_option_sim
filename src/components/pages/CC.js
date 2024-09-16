@@ -26,7 +26,7 @@ const StockPriceChart = () => {
     const selectedMAs = Object.keys(movingAverages).filter(ma => movingAverages[ma]);
     const maString = selectedMAs.join(',');
 
-    fetch(`http://localhost:5000/plot?ticker=${ticker}&timeframe=${timeframe}&ma=${maString}`)
+    fetch(`https://gray-coast-af03e54380c84bf6904e905d921c75fc.azurewebsites.net/plot?ticker=${ticker}&timeframe=${timeframe}&ma=${maString}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
